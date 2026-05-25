@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Manali Adventure Trip 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#07111f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    animation:zoom 18s infinite alternate;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.12);
+    }
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:1000px;
+}
+
+.hero h1{
+    font-size:5rem;
+    font-weight:800;
+    margin-bottom:20px;
+    line-height:1.1;
+    background:linear-gradient(to right,#38bdf8,#facc15,#f97316);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:fadeUp 1s ease;
+}
+
+.hero p{
+    font-size:1.25rem;
+    color:#e2e8f0;
+    line-height:2;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 35px;
+    border-radius:50px;
+    background:linear-gradient(45deg,#38bdf8,#2563eb);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(59,130,246,0.4);
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* ================= FLOATING ICONS ================= */
+
+.float{
+    position:absolute;
+    font-size:2rem;
+    opacity:0.6;
+    animation:float 6s infinite ease-in-out;
+}
+
+.float:nth-child(1){top:12%;left:8%;}
+.float:nth-child(2){top:18%;right:10%;}
+.float:nth-child(3){bottom:15%;left:15%;}
+.float:nth-child(4){bottom:10%;right:12%;}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* ================= SECTION ================= */
+
+.section-title{
+    text-align:center;
+    margin-top:90px;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    color:#38bdf8;
+}
+
+.section-title p{
+    margin-top:15px;
+    color:#cbd5e1;
+    font-size:1.1rem;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    position:relative;
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding-bottom:100px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:5px;
+    height:100%;
+    background:linear-gradient(#38bdf8,#f97316);
+    border-radius:20px;
+}
+
+.day{
+    width:50%;
+    padding:20px 50px;
+    position:relative;
+}
+
+.day:nth-child(odd){
+    left:0;
+}
+
+.day:nth-child(even){
+    left:50%;
+}
+
+.day::before{
+    content:'';
+    position:absolute;
+    top:40px;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:#facc15;
+    border:4px solid #07111f;
+    z-index:10;
+}
+
+.day:nth-child(odd)::before{
+    right:-11px;
+}
+
+.day:nth-child(even)::before{
+    left:-11px;
+}
+
+.card{
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:30px;
+    padding:30px;
+    transition:0.4s;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 25px 50px rgba(56,189,248,0.25);
+}
+
+.day-title{
+    font-size:2rem;
+    color:#facc15;
+    margin-bottom:20px;
+}
+
+.time{
+    margin-bottom:18px;
+    line-height:1.9;
+    color:#e2e8f0;
+    font-size:1rem;
+}
+
+.label{
+    color:#38bdf8;
+    font-weight:700;
+}
+
+.highlight{
+    color:#f97316;
+    font-weight:600;
+}
+
+.note{
+    margin-top:18px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.05);
+    border-left:4px solid #38bdf8;
+    line-height:1.8;
+    color:#dbeafe;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#020617;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.footer h2{
+    font-size:3rem;
+    margin-bottom:25px;
+    color:#38bdf8;
+}
+
+.footer p{
+    max-width:900px;
+    margin:auto;
+    line-height:2;
+    color:#cbd5e1;
+    font-size:1.1rem;
+}
+
+.tags{
+    margin-top:35px;
+}
+
+.tag{
+    display:inline-block;
+    margin:10px;
+    padding:12px 24px;
+    border-radius:50px;
+    background:linear-gradient(45deg,#38bdf8,#2563eb);
+    color:white;
+    font-weight:600;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.timeline::before{
+    left:20px;
+}
+
+.day{
+    width:100%;
+    left:0 !important;
+    padding-left:60px;
+    padding-right:20px;
+}
+
+.day::before{
+    left:9px !important;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="float">🏔️</div>
+<div class="float">🚞</div>
+<div class="float">☕</div>
+<div class="float">🌌</div>
+
+<div class="hero-content">
+    <h1>Manali Adventure Trip 2026</h1>
+
+    <p>
+        Hyderabad → Delhi → Manali → Rohtang → Solang → Jispa → Sissu → Kasol → Manikaran → Back Home.
+        <br><br>
+        A breathtaking 10-day backpacking adventure filled with snowy mountains, riverside cafés,
+        Tibetan food, paragliding, rafting, scenic road trips, hidden valleys, hot springs,
+        unforgettable sunsets and cozy Himalayan nights.
+    </p>
+
+    <a href="#journey" class="hero-btn">Explore Journey ↓</a>
+</div>
+
+</section>
+
+<!-- ================= TITLE ================= -->
+
+<div class="section-title" id="journey">
+    <h2>✨ Your Complete Travel Timeline ✨</h2>
+    <p>Every destination, café, activity, ride and detail beautifully planned.</p>
+</div>
+
+<!-- ================= TIMELINE ================= -->
+
+<div class="timeline">
+
+<!-- DAY 1 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🚆 Day 1 — Hyderabad → Delhi</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Pack essentials, water bottles and light snacks for the train journey.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Board train at <span class="highlight">4:20 PM</span> from Hyderabad to Delhi.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Overnight train journey begins.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🚌 Day 2 — Delhi → Manali</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Arrive in Delhi → Take Metro to Kashmiri Gate ISBT.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Board overnight Volvo/Bus to Manali.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🏡 Day 3 — Settle Into Manali</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Arrive in Manali → Check into budget hotel → Rest and acclimatize.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Walk around Old Manali → Riverside chill and photography.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Café hopping + dinner.
+</div>
+
+<div class="note">
+🍜 <strong>Tenzin Dhaba</strong> — Budget Tibetan comfort food famous for momos and thukpa.
+<br><br>
+☕ <strong>Dylan's Toasted & Roasted Coffee House</strong> — Cozy café with good coffee, desserts and light bites.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 4 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🛕 Day 4 — Temples, Snow & Hot Springs</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Visit <span class="highlight">Rohtang Pass (RTC Himachal Pradesh)</span>.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Explore Hadimba Devi Temple → Forest photo-walk nearby.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Relax in Vashisht Hot Water Springs → Dinner at Cafe 1947.
+</div>
+
+<div class="note">
+🌊 <strong>Cafe 1947</strong> — Beautiful riverside ambience.
+<br>
+Budget tip: Order 1 main + 1 drink and share dessert.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 5 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🪂 Day 5 — Adventure Day</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Explore scenic <span class="highlight">Koksar</span>.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Adventure activities:
+<br>• Paragliding
+<br>• Zipline
+<br>• ATV rides
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Spend sunset time at Solang Valley.
+</div>
+
+<div class="note">
+☕ Solang Valley is more about snack stalls and dhabas than sit-down cafés.
+Expect tea, coffee and quick snacks like Maggi.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 6 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🚘 Day 6 — Atal Tunnel & Sissu Trip</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Visit <span class="highlight">Jispa</span>.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Explore <span class="highlight">Sissu</span> and surrounding viewpoints.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Return to Manali → Dinner at Rocky's Cafe.
+</div>
+
+<div class="note">
+🍽️ <strong>Rocky's Cafe</strong> — Casual café-style place perfect for a relaxed dinner after a long drive.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 7 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🚣 Day 7 — River Rafting & Cafés</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Beas River rafting on the Babeli–Pirdi stretch.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Recovery time in Old Manali → Café hopping and bakery stop.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Dinner at Monastery Cafe.
+</div>
+
+<div class="note">
+🍲 <strong>Monastery Cafe</strong> — Calm atmosphere and budget-friendly warm meals.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 8 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🏕️ Day 8 — Kasol & Manikaran</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Govt bus from Manali to Kasol → Rent bike.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Visit Manikaran and Manikaran Sahib.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Dinner at Cafe By The Hidden Tribe → Overnight stay at Drifter's Inn & Cafe.
+</div>
+
+<div class="note">
+☕ <strong>Cafe By The Hidden Tribe</strong> — Relaxed Kasol vibe and perfect dinner stop.
+<br><br>
+🏡 <strong>Drifter's Inn & Cafe</strong> — Convenient backpacker stay + café combo.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 9 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🚌 Day 9 — Kasol → Delhi</div>
+
+<div class="time">
+<span class="label">☀️ Morning:</span>
+Bus from Kasol to Delhi.
+</div>
+
+<div class="time">
+<span class="label">🌤️ Afternoon:</span>
+Buffer for traffic and reaching railway station.
+</div>
+
+<div class="time">
+<span class="label">🌙 Evening:</span>
+Train from Delhi to Hyderabad.
+</div>
+
+</div>
+</div>
+
+<!-- DAY 10 -->
+<div class="day">
+<div class="card">
+
+<div class="day-title">🏁 Day 10 — Arrive Hyderabad</div>
+
+<div class="time">
+<span class="label">🌤️ Arrival Day:</span>
+Reach Hyderabad safely.
+</div>
+
+<div class="time">
+<span class="label">✨ Trip Ends:</span>
+Mountains, rivers, cafés, adventures and unforgettable memories completed successfully.
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<section class="footer">
+
+<h2>💙 The Ultimate Himalayan Backpacking Experience</h2>
+
+<p>
+From overnight train rides and snowy Himalayan roads to riverside cafés,
+hot springs, rafting adventures and peaceful mountain sunsets —
+this journey blends adventure, relaxation, budget travel and unforgettable memories.
+Every day has its own vibe, every café has its own story and every destination
+adds another chapter to your Himalayan adventure.
+</p>
+
+<div class="tags">
+    <span class="tag">🏔️ Mountains</span>
+    <span class="tag">☕ Café Hopping</span>
+    <span class="tag">🚣 River Rafting</span>
+    <span class="tag">🪂 Adventure Sports</span>
+    <span class="tag">🌌 Backpacking</span>
+    <span class="tag">📸 Photography</span>
+</div>
+
+</section>
+
+</body>
+</html>
